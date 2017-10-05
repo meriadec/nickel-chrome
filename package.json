@@ -6,8 +6,11 @@
   "repository": "git@github.com:meriadec/nickel-chrome.git",
   "author": "meriadec <meriadec.pillet@gmail.com>",
   "license": "BSD-2-Clause",
+  "bin": {
+    "nickel-chrome": "./src/nickel-chrome"
+  },
   "scripts": {
-    "start": "node src/index.js",
+    "start": "./src/nickel-chrome",
     "lint": "eslint src",
     "prettier": "prettier --write \"src/**/*.js\""
   },
