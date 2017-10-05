@@ -48,6 +48,8 @@ This is the only required property. Here are some others:
 }
 ```
 
+the response format will be a base64-encoded image.
+
 ## License
 
 BSD-2-Clause
