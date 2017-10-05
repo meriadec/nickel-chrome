@@ -1,7 +1,7 @@
 const http = require('http')
 const log = require('./log')
 
-const PORT = process.env.NICKEL_CHROME_PORT || 3000
+const PORT = process.env.NICKEL_CHROME_PORT || 3010
 
 module.exports = function createServer(handler) {
   const server = http.createServer(handler)
