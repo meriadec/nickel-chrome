@@ -1,7 +1,7 @@
 {
   "name": "nickel-chrome",
   "version": "0.1.0",
-  "description": "A server that use chrome headless to generate screenshot of HTML",
+  "description": "A server that use chrome headless to generate screenshots of HTML",
   "main": "src/index.js",
   "repository": "git@github.com:meriadec/nickel-chrome.git",
   "author": "meriadec <meriadec.pillet@gmail.com>",
