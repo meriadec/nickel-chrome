@@ -1,9 +1,17 @@
 #!/bin/env node
 
+// Usage:
+//
+// nickel-chrome [nb-workers]
+//
+// The default nb workers is 5.
+
 const { version } = require('../package.json')
 const scheduler = require('./scheduler')
 const parseBody = require('./parseBody')
 const log = require('./log')
+
+const NB_WORKERS = parseInt(process.argv[2], 10) || 5
 
 console.log(`
    ╔═══════════════════╗
@@ -15,7 +23,7 @@ console.log(`
    ╚═══════════════════╝
 `)
 
-scheduler.launchWorkers(5)
+scheduler.launchWorkers(NB_WORKERS)
 
 require('./createServer')(async (req, res) => {
   try {
