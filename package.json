@@ -1,0 +1,19 @@
+{
+  "name": "nickel-chrome",
+  "version": "0.1.0",
+  "description": "A server that use chrome headless to generate screenshot of HTML",
+  "main": "src/index.js",
+  "repository": "git@github.com:meriadec/nickel-chrome.git",
+  "author": "meriadec <meriadec.pillet@gmail.com>",
+  "license": "BSD-2-Clause",
+  "scripts": {
+    "lint": "eslint src",
+    "prettier": "prettier --write \"src/**/*.js\""
+  },
+  "devDependencies": {
+    "eslint": "^4.8.0",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-config-zavatta": "^6.0.1",
+    "prettier": "^1.7.4"
+  }
+}
