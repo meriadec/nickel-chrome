@@ -7,6 +7,7 @@
   "author": "meriadec <meriadec.pillet@gmail.com>",
   "license": "BSD-2-Clause",
   "scripts": {
+    "start": "node src/index.js",
     "lint": "eslint src",
     "prettier": "prettier --write \"src/**/*.js\""
   },
