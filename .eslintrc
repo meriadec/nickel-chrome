@@ -1,3 +1,6 @@
 {
-  "extends": ["zavatta", "prettier"]
+  "extends": ["zavatta", "prettier"],
+  "rules": {
+    "no-console": 0,
+  },
 }

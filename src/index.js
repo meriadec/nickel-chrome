@@ -1,8 +1,17 @@
-require('./greetings')
-
+const { version } = require('../package.json')
 const scheduler = require('./scheduler')
 const parseBody = require('./parseBody')
 const log = require('./log')
+
+console.log(`
+   ╔═══════════════════╗
+   ║                   ║
+   ║   NICKEL-CHROME   ║
+   ║                   ║
+   ╟───────────────────╢
+   ║ ${version}             ║
+   ╚═══════════════════╝
+`)
 
 scheduler.launchWorkers(5)
 
@@ -23,12 +32,7 @@ require('./createServer')(async (req, res) => {
 })
 
 async function onExit() {
-  try {
-    await scheduler.stopWorkers()
-  } catch (err) {
-    log.error('Cant stop workers')
-    log.error(err)
-  }
+  await scheduler.stopWorkers()
   process.exit()
 }
 
