@@ -15,5 +15,8 @@
     "eslint-config-prettier": "^2.6.0",
     "eslint-config-zavatta": "^6.0.1",
     "prettier": "^1.7.4"
+  },
+  "dependencies": {
+    "puppeteer": "^0.11.0"
   }
 }
