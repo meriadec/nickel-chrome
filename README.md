@@ -6,6 +6,12 @@
 yarn global add nickel-chrome
 ```
 
+if you are patient, you can also install it with npm:
+
+```
+npm i -g nickel-chrome
+```
+
 ## Usage
 
 ### Launch the nickel-chrome server
