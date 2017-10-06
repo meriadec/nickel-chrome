@@ -25,7 +25,8 @@ module.exports = async function screenshot(browser, options) {
     selector,
     styles,
     resize,
-    format = 'jpeg',
+    // can be ['jpg', 'png']
+    format,
     formatOptions = {},
   } = options
   const { width: pageWidth = 650, height: pageHeight = 650, fullPage = false } = viewportSize
@@ -40,11 +41,26 @@ module.exports = async function screenshot(browser, options) {
   let buffer = await page.screenshot({ fullPage })
   await page.close()
 
-  if (resize) {
-    const { width, height } = resize
-    buffer = await sharp(buffer)
-      .resize(width, height)
-      .toBuffer()
+  // sharp operations
+  const shouldSharp = !!resize || !!format
+  if (shouldSharp) {
+    let img = sharp(buffer)
+
+    // resize image
+    if (resize) {
+      const { width, height } = resize
+      img = img.resize(width, height)
+    }
+
+    // image format
+    if (format) {
+      if (format === 'jpg') {
+        img = img.jpeg(formatOptions)
+      } else if (format === 'png') {
+        img = img.png(formatOptions)
+      }
+    }
+    buffer = await img.toBuffer()
   }
 
   return buffer.toString('base64')

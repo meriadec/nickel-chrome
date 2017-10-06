@@ -66,4 +66,20 @@ describe('screenshot', () => {
     const imgInfos = await h.getImgInfos(base64)
     expect(imgInfos.height).to.eq(1000)
   })
+
+  it('should generate to desired format', async () => {
+    let base64
+    const options = { html: 'hello world' }
+    base64 = await scheduler.screenshot(options)
+    const sizeWithoutCompress = base64.length
+    base64 = await scheduler.screenshot({
+      ...options,
+      format: 'jpg',
+      formatOptions: {
+        quality: 10,
+      },
+    })
+    const sizeWithCompress = base64.length
+    expect(sizeWithCompress).to.be.below(sizeWithoutCompress)
+  })
 })

@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "./src/nickel-chrome",
-    "test": "mocha --recursive test",
+    "test": "mocha --recursive test --slow 600",
     "lint": "eslint src",
     "prettier": "prettier --write \"src/**/*.js\""
   },
