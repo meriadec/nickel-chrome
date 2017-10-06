@@ -78,6 +78,9 @@ This is the only required property. Let's see what other options you have.
       backgroundColor: 'red',
     }
   },
+
+  // capture the given element (can't be used with `fullPage`)
+  selector: '.my-element',
 }
 ```
 

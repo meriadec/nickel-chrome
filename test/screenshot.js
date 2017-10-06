@@ -82,4 +82,23 @@ describe('screenshot', () => {
     const sizeWithCompress = base64.length
     expect(sizeWithCompress).to.be.below(sizeWithoutCompress)
   })
+
+  it('should capture a given selector', async () => {
+    const base64 = await scheduler.screenshot({
+      selector: '.block-2',
+      html: `
+        <div>
+          <div class="block-1" style="width: 200px; height: 300px">
+            THIS IS BLOCK 1
+          </div>
+          <div class="block-2" style="width: 400px; height: 600px">
+            THIS IS BLOCK 2
+          </div>
+        </div>
+      `,
+    })
+    const imgInfos = await h.getImgInfos(base64)
+    expect(imgInfos.width).to.eq(400)
+    expect(imgInfos.height).to.eq(600)
+  })
 })
