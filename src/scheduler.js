@@ -3,10 +3,10 @@ const puppeteer = require('puppeteer')
 const log = require('./log')
 const screenshot = require('./screenshot')
 
-const workers = []
+let workers = []
 
 async function launchWorker() {
-  const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
+  const browser = await puppeteer.launch({ args: ['--no-sandbox', '--disable-setuid-sandbox'] })
   workers.push({ browser, isAvailable: true })
   log.log(`Launched worker (total: ${workers.length})`)
 }
@@ -35,12 +35,17 @@ exports.launchWorkers = async function(nb = 5) {
 }
 
 exports.stopWorkers = async function() {
+  if (!workers.length) {
+    return
+  }
   for (let i = 0; i < workers.length; i++) {
     try {
       // for some reason, sometimes close fail (but no zombie process)
       await workers[i].browser.close()
     } catch (err) {} // eslint-disable-line no-empty
   }
+  log.log(`Stopped ${workers.length} workers`)
+  workers = []
 }
 
 exports.screenshot = async function(payload) {

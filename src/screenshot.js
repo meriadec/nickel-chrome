@@ -4,6 +4,6 @@ module.exports = async function screenshot(browser, payload) {
   await page.setViewport({ width, height })
   await page.setContent(html)
   const buffer = await page.screenshot()
-  page.close()
+  await page.close()
   return buffer.toString('base64')
 }
