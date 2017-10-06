@@ -38,13 +38,40 @@ The server will handle `POST` requests on `/`, with a payload looking like this:
 }
 ```
 
-This is the only required property. Here are some others:
+This is the only required property. Let's see what other options you have.
 
-```JSON
+### Options
+
+```js
 {
-  "html": "<div>hello world</div>",
-  "width": 350,
-  "height": 120,
+  // the HTML to screenshot
+  html: '',
+
+  // specify page size
+  viewportSize: {
+    width: 650,
+    height: 650,
+    // the screenshot will be taken full page height
+    fullPage: false,
+  },
+
+  // resize final image
+  resize: {
+    width: 300,
+    // if not given, will resize conserving ratio
+    height: 150,
+  }
+
+  // inject custom styles in page. the keys are querySelectors. the values
+  // will be merged to CSSStyleDeclaration of the found node
+  styles: {
+    body: {
+      marginTop: 40,
+    },
+    '.my-class': {
+      backgroundColor: 'red',
+    }
+  },
 }
 ```
 
