@@ -1,15 +1,13 @@
 const http = require('http')
 const log = require('./log')
 
-const PORT = process.env.NICKEL_CHROME_PORT || 3010
-
-module.exports = function createServer(handler) {
+module.exports = function createServer(port, handler) {
   const server = http.createServer(handler)
-  server.listen(PORT, err => {
+  server.listen(port, err => {
     if (err) {
       log.error(err) // eslint-disable-line no-console
       process.exit(1)
     }
-    log.log(`Server listening on port ${PORT}`) // eslint-disable-line no-console
+    log.log(`Server listening on port ${port}`) // eslint-disable-line no-console
   })
 }

@@ -7,10 +7,10 @@
   "author": "meriadec <meriadec.pillet@gmail.com>",
   "license": "BSD-2-Clause",
   "bin": {
-    "nickel-chrome": "./src/nickel-chrome"
+    "nickel-chrome": "./src/cli.js"
   },
   "scripts": {
-    "start": "./src/nickel-chrome",
+    "start": "node ./src/cli.js",
     "test": "mocha --recursive test --slow 600",
     "lint": "eslint src",
     "prettier": "prettier --write \"src/**/*.js\""
