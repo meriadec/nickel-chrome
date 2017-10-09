@@ -2,7 +2,7 @@
   "name": "nickel-chrome",
   "version": "1.1.0",
   "description": "A server that use chrome headless to generate screenshots of HTML",
-  "main": "src/index.js",
+  "main": "lib/cli.js",
   "repository": "git@github.com:meriadec/nickel-chrome.git",
   "author": "meriadec <meriadec.pillet@gmail.com>",
   "license": "BSD-2-Clause",
@@ -11,11 +11,14 @@
   },
   "scripts": {
     "start": "node ./src/cli.js",
+    "build": "babel src -d lib",
     "test": "mocha --recursive test --slow 600",
     "lint": "eslint src",
     "prettier": "prettier --write \"src/**/*.js\""
   },
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-stage-0": "^6.24.1",
     "chai": "^4.1.2",
     "eslint": "^4.8.0",
     "eslint-config-prettier": "^2.6.0",
