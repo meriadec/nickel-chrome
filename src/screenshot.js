@@ -14,7 +14,7 @@ async function injectStyles(page, styles) {
     if (!styles.hasOwnProperty(i)) {
       continue
     }
-    await page.$eval('body', assignStyle, styles[i])
+    await page.$eval(i, assignStyle, styles[i])
   }
 }
 
