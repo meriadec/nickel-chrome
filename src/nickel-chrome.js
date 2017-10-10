@@ -1,3 +1,4 @@
+const debug = require('debug')('nickel-chrome')
 const { version } = require('../package.json')
 const scheduler = require('./scheduler')
 const parseBody = require('./parseBody')
@@ -5,7 +6,7 @@ const log = require('./log')
 const createServer = require('./createServer')
 
 module.exports = function nickelChrome(port, nbWorkers) {
-  console.log(`
+  debug(`
      ╔═══════════════════╗
      ║                   ║
      ║   NICKEL-CHROME   ║

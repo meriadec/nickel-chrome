@@ -1,8 +1,5 @@
 {
   "extends": ["zavatta", "prettier"],
-  "rules": {
-    "no-console": 0,
-  },
   "globals": {
     "describe": false,
     "it": false,

@@ -1,3 +1,4 @@
+const debug = require('debug')('nickel-chrome')
 const chalk = require('chalk')
 
 let LEVEL = 'default'
@@ -6,7 +7,7 @@ function genericLog(msg, type) {
   if (LEVEL === 'silent') {
     return
   }
-  console.log(`${chalk.yellow(`[${new Date().toISOString()}]`)} ${type} ${msg}`) // eslint-disable-line no-console
+  debug(`${chalk.yellow(`[${new Date().toISOString()}]`)} ${type} ${msg}`) // eslint-disable-line no-console
 }
 
 exports.setSilent = () => (LEVEL = 'silent')
