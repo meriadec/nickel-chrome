@@ -101,4 +101,15 @@ describe('screenshot', () => {
     expect(imgInfos.width).to.eq(400)
     expect(imgInfos.height).to.eq(600)
   })
+
+  it('should capture all the images on a real world template', async () => {
+    const html = await h.readFixture('real-world-1.html')
+    const base64 = await scheduler.screenshot({
+      html,
+      viewportSize: {
+        fullPage: true,
+      },
+    })
+    await h.writeImage(base64, 'toto')
+  })
 })

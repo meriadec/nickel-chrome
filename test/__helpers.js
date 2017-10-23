@@ -22,3 +22,15 @@ exports.getImgInfos = function getImgInfos(base64) {
   const buffer = new Buffer(base64, 'base64')
   return sharp(buffer).metadata()
 }
+
+exports.readFixture = function readFixture(name) {
+  const fileName = path.resolve(__dirname, 'fixtures', name)
+  return new Promise((resolve, reject) => {
+    fs.readFile(fileName, { encoding: 'utf8' }, (err, content) => {
+      if (err) {
+        return reject(err)
+      }
+      resolve(content)
+    })
+  })
+}
