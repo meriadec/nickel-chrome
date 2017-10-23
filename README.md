@@ -81,6 +81,9 @@ This is the only required property. Let's see what other options you have.
 
   // capture the given element (can't be used with `fullPage`)
   selector: '.my-element',
+
+  // wait for 'load' event on the page, until this max timeout
+  loadTimeout: 300,
 }
 ```
 

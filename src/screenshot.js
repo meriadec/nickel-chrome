@@ -25,6 +25,16 @@ function getClip(page, selector) {
   })
 }
 
+function waitLoad(page, loadTimeout) {
+  return new Promise(resolve => {
+    const t = setTimeout(resolve, loadTimeout)
+    page.on('load', () => {
+      clearTimeout(t)
+      resolve()
+    })
+  })
+}
+
 module.exports = async function screenshot(browser, options) {
   const {
     html = '',
@@ -35,6 +45,7 @@ module.exports = async function screenshot(browser, options) {
     // can be ['jpg', 'png']
     format,
     formatOptions = {},
+    loadTimeout = 300,
   } = options
 
   const { width: pageWidth = 650, height: pageHeight = 650, fullPage = false } = viewportSize
@@ -42,6 +53,7 @@ module.exports = async function screenshot(browser, options) {
   const page = await browser.newPage()
   await page.setViewport({ width: pageWidth, height: pageHeight })
   await page.setContent(html)
+  await waitLoad(page, loadTimeout)
 
   const clip = selector ? await getClip(page, selector) : null
 
