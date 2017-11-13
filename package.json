@@ -1,13 +1,13 @@
 {
   "name": "nickel-chrome",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "A server that use chrome headless to generate screenshots of HTML",
   "main": "lib/cli.js",
   "repository": "git@github.com:meriadec/nickel-chrome.git",
   "author": "meriadec <meriadec.pillet@gmail.com>",
   "license": "BSD-2-Clause",
   "bin": {
-    "nickel-chrome": "./src/cli.js"
+    "nickel-chrome": "./lib/cli.js"
   },
   "scripts": {
     "start": "node ./src/cli.js",
