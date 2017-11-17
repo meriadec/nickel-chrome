@@ -20,6 +20,11 @@ module.exports = function nickelChrome(port, nbWorkers) {
 
   createServer(port, async (req, res) => {
     try {
+      if (req.method === 'GET' && req.url === '/health') {
+        res.writeHead(200)
+        res.end('OK')
+        return
+      }
       log.log('Receiving request')
       const now = Date.now()
       const payload = await parseBody(req)
