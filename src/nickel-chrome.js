@@ -20,7 +20,7 @@ module.exports = function nickelChrome(port, nbWorkers) {
 
   createServer(port, async (req, res) => {
     try {
-      if (req.method === 'HEAD' && req.url === '/healthcheck') {
+      if (['HEAD', 'GET'].includes(req.method) && req.url === '/healthcheck') {
         res.writeHead(200)
         res.end('OK')
         return
